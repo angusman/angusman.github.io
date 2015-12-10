@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<html>
+	<head>
+		<title>Plotting with Plotly</title>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<script src="math.min.js"></script>
+		<style>
+			header {
+				background-color:black;
+				color:white;
+				text-align:left;
+				padding:10px; 
+			}
+			nav {
+				line-height:30px;
+				background-color:#eeeeee;
+				height:300px;
+				width:180px;
+				float:left;
+				padding:5px;
+			}
+			footer {
+				background-color:black;
+				color:white;
+				clear:both;
+				text-align:center;
+				padding:5px; 
+			}
+			td {
+			text-align: right;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<b>Space Interval =</b>  [a: <input type="text" value="0" id="xInta" size="1"> 
+				b: <input type="text" value="10" id="xIntb" size="1"> ]
+			&nbsp&nbsp&nbsp <b>Time =</b> <input type="text" value="10" id="tIntb" size="1">
+			&nbsp&nbsp&nbsp <b>Wave Speed =</b> <input type="text" value="1" id="v" size="1">
+			
+			<button onClick="update();" id="wave" style="float: right; width: 100px; height: 50px"><b>Update</b></button>
+			
+			<p>
+			&nbsp&nbsp&nbsp <b>N =</b> <input type="text" value="500" id="N" size="1">
+			&nbsp&nbsp&nbsp <b>dt =</b> <input type="text" value="0.01" id="dt" size="1">
+			</p><p> 
+			<b>Initial Wave Behavior</b>
+			&nbsp&nbsp&nbsp <b>f<sub>0</sub>(x):</b> <input type="text" value="max(1-abs(x-2),0)" id="f0expression">
+			&nbsp&nbsp&nbsp <b>g<sub>0</sub>(x):</b> <input type="text" value="0" id="g0expression">
+			</p>
+		</header>
+
+		<nav>
+			<b>Boundary Conditions</b>
+			<form>
+				<input type="radio" name="boundary" value="dir" checked> Dirichlet
+					<br>
+				<input type="radio" name="boundary" value="neu"> Neumann
+					<br>
+				<input type="radio" name="boundary" value ="dn"> Dirichlet/Neumann
+					<br>
+				<input type="radio" name="boundary" value ="nd"> Neumann/Dirichlet
+			</form> 	
+		</nav>
+
+		<div id="main" style="width: 640px; height: 420px; float: right"></div>
+			<script src="Wave.js"></script>
+
+		<footer>
+			WAVELAB Team 2015
+		</footer>
+	</body>
+</html>
