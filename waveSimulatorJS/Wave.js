@@ -169,7 +169,7 @@ function animateWave(data,layout) {
 		Plotly.newPlot(main, data, layout) // recomputing axis info
 	}
 	var timer = setInterval(function() {
-		main.layout.title = 't = ' + (dt*i).toPrecision(2);
+		main.layout.title = 't = ' + (dt*i).toFixed(2);
 		main.data[0].y = y[i];
 		Plotly.redraw(main);
 		i = i + stepsize;
